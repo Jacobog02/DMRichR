@@ -65,6 +65,8 @@ processBismark <- function(files = list.files(path = getwd(), pattern = "*.txt.g
                             verbose = TRUE,
                             BPPARAM = BiocParallel::MulticoreParam(workers = cores, progressbar = FALSE), # BPPARAM # bpparam() # MulticoreParam(workers = cores, progressbar = TRUE)
                             nThread = 1) # 1L # nThread
+  ## JG 3/14/21: I am using ENSEMBL aligned data. Remap granges object to UCSC. This command should not affect current builds as they use UCSC formats.
+  GenomeInfoDb::seqlevelsStyle(bs) <- "UCSC"
   
   print(glue::glue("Assigning sample metadata with {testCovariate} as factor of interest..."))
   sampleNames(bs) <- gsub( "_.*$","", sampleNames(bs))
