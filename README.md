@@ -70,7 +70,8 @@ Additionally, if you are interested in creating your own workflow as opposed to 
 
 ```
 Sys.setenv("R_REMOTES_NO_ERRORS_FROM_WARNINGS" = TRUE)
-BiocManager::install("ben-laufer/DMRichR")
+#BiocManager::install("ben-laufer/DMRichR") ## Main Branch
+BiocManager::install("Jacobog02/DMRichR") ## JG version
 ```
 
 Finally, while DMRichR works with R 4.0 it runs best with R 3.6.
